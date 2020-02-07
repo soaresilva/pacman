@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: sans-serif;
+  font-size: 15px; }
+
+body {
+  margin: 0; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh; }
+
+.stage {
+  width: 1020px;
+  height: 510px;
+  background-image: url("/img/tile.png");
+  position: relative; }
+
+.entity {
+  position: absolute;
+  width: 85px;
+  height: 85px; }
+  .entity--pac {
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 65px;
+    user-select: none; }
+    .entity--pac--pacChange {
+      background-position-x: right; }
+  .entity--wall {
+    background-image: url("/img/wall.png"); }
+  .entity--apple {
+    background-image: url("/img/apple.png"); }
+  .entity--bomb {
+    background-image: url("/img/bomb.png"); }
+  .entity--tomb {
+    background-image: url("/img/tomb.png"); }
+
+.pacboy-active-light {
+  background-image: url("/img/pacboy-active-light.png"); }
+
+.pacboy-active-medium {
+  background-image: url("/img/pacboy-active-medium.png"); }
+
+.pacboy-active-dark {
+  background-image: url("/img/pacboy-active-dark.png"); }
+
+.pacgirl-active-light {
+  background-image: url("/img/pacgirl-active-light.png"); }
+
+.pacgirl-active-medium {
+  background-image: url("/img/pacgirl-active-medium.png"); }
+
+.pacgirl-active-dark {
+  background-image: url("/img/pacgirl-active-dark.png"); }
+
+/*# sourceMappingURL=main.css.map */

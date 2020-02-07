@@ -36,9 +36,14 @@ body {
     font-weight: bold;
     text-align: center;
     padding-top: 65px;
-    user-select: none;    
+    user-select: none;
+    
+    &--pacChange {
+      background-position-x: right;
+    }
   }
-
+  
+ 
   &--wall {
     background-image: url('/img/wall.png');
   }
