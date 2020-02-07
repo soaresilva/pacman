@@ -20,41 +20,47 @@ class Pacman {
     document.addEventListener('keydown', (e) => {
 
       if (e.keyCode === 39) {
-        // if(this.Stage.collisionDetection(this.xPos - 1, this.yPos - 1) === true) {
-        //   if(this.Stage.type === 'wall') {
-        //     console.log('hahahah')
-        //   }
-        // }
-        console.log(this.Stage.collisionDetection(2, 1))
-
         this.element.style.backgroundPositionY = '0px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'right';
-        this.xPos += 1;
+        if(this.Stage.collisionDetection(this.xPos + 1, this.yPos) === true) {
+          this.yPos = this.yPos;
+        } else {
+          this.xPos += 1;
+        }
         this.update();
       } else if(e.keyCode === 37) {
-        console.log(this.Stage.collisionDetection(2,1))
 
         this.element.style.backgroundPositionY = '-85px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'left';
-        this.xPos -= 1;
+        if(this.Stage.collisionDetection(this.xPos - 1, this.yPos) === true) {
+          this.xPos = this.xPos;
+        } else {
+          this.xPos -= 1;
+        }
         this.update();
       } else if(e.keyCode === 38) {
-        console.log(this.Stage.collisionDetection(2,1))
 
         this.element.style.backgroundPositionY = '-255px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'up';
-        this.yPos -= 1;
+        if(this.Stage.collisionDetection(this.xPos, this.yPos - 1) === true) {
+          this.yPos = this.yPos;
+        } else {
+          this.yPos -= 1;
+        }
         this.update();
       } else if(e.keyCode === 40) {
-        console.log(this.Stage.collisionDetection(2,1))
 
         this.element.style.backgroundPositionY = '-170px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'down';
-        this.yPos += 1;
+        if(this.Stage.collisionDetection(this.xPos, this.yPos + 1) === true) {
+          this.yPos = this.yPos;
+        } else {
+          this.yPos += 1;
+        }
         this.update();
       }
     })
@@ -98,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
   const stage = new Stage(12, 6);
   stage.mount(app);
+  
 
   const stageOne = document.querySelector('.stage')
 
@@ -110,9 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const wall5 = new Entity(stage, 4, 4, 'wall');
   const wall6 = new Entity(stage, 2, 1, 'wall');
   const wallStreet = new Entity(stage, 3, 3, 'wall');
+  const apple = new Entity(stage, 5, 1, 'apple');
+
   
-  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet);
-  console.log(stage.entities);
+  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple);
   // stage.collisionDetection(7, 5);
   //APPLE ENTITY
 
@@ -125,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
   wall5.mount(stageOne);
   wall6.mount(stageOne);
   wallStreet.mount(stageOne);
+
+  apple.mount(stageOne);
   pacBoy.mount(stageOne)
   
   pacBoy.move();

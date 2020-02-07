@@ -7,17 +7,24 @@ class Stage {
 
   collisionDetection(x, y) {
     for(let i = 0; i < this.entities.length; i+=1) {
-      let a = this.entities[i].x;
-      let  b = this.entities[i].y;
-      let type = this.entities[i].type;
-      //  console.log(type)
-      console.log(a + ' ' + b)
-       if(a === x && b === y) {
-         return true;
-       } else {
-         return false;
-       }
+      if(this.entities[i].x === x && this.entities[i].y === y) {
+        if(this.entities[i].type === 'wall') {
+          return true;
+        } else if(this.entities[i].type === 'apple') {
+          console.log('oh an apple')
+        }
+      }
     }
+    return null;
+
+      //  a.push(this.entities[i].x);
+      //   b.push(this.entities[i].y);
+      // let type = this.entities[i].type;
+    }
+
+    
+  removeEntity(entity) {
+    
   }
   
   render() {

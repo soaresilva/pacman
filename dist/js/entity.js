@@ -20,6 +20,10 @@ class Entity {
   mount(parent) {
     parent.appendChild(this.render());
   }
+
+  unmount(parent) {
+    parent.removeChild(this.render());
+  }
 }
 
 const wall = new Entity();
