@@ -1,8 +1,9 @@
 class Stage {
-  constructor(width, height, entities) {
+  constructor(width, height, entities, Entity) {
     this.width = width;
     this.height = height;
     this.entities = [];
+    this.Entity = Entity;
   }
 
   collisionDetection(x, y) {
@@ -16,15 +17,12 @@ class Stage {
       }
     }
     return null;
-
-      //  a.push(this.entities[i].x);
-      //   b.push(this.entities[i].y);
-      // let type = this.entities[i].type;
     }
 
     
-  removeEntity(entity) {
-    
+  removeEntity(ent) {
+    // this.entities.splice(this.entities.length - 2,);
+    ent.innerHTML = '';
   }
   
   render() {

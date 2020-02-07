@@ -118,12 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const wall6 = new Entity(stage, 2, 1, 'wall');
   const wallStreet = new Entity(stage, 3, 3, 'wall');
   const apple = new Entity(stage, 5, 1, 'apple');
+  const apple1 = new Entity(stage, 9, 2, 'apple');
+  const apple2= new Entity(stage, 7, 1, 'apple');
+  const apple3 = new Entity(stage, 7, 1, 'apple');
+  const apple4 = new Entity(stage, 3, 4, 'apple');
 
   
-  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple);
+  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple, apple1, apple2, apple3, apple4);
   // stage.collisionDetection(7, 5);
   //APPLE ENTITY
-
+  
   const pacBoy = new Pacman(stage, 0, 0, 'mouth');
   wall.mount(stageOne);
   wall1.mount(stageOne);
@@ -133,11 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
   wall5.mount(stageOne);
   wall6.mount(stageOne);
   wallStreet.mount(stageOne);
-
+  
   apple.mount(stageOne);
+  apple1.mount(stageOne);
+  apple2.mount(stageOne);
+  apple3.mount(stageOne);
+  apple4.mount(stageOne);
   pacBoy.mount(stageOne)
   
   pacBoy.move();
+  
+  stage.removeEntity(apple);
 });
 
 

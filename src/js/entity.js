@@ -17,12 +17,12 @@ class Entity {
     return this.element;
   }
 
+  // unmount(parent) {
+  //   this.element.removeChild(this.render());
+  // }
+
   mount(parent) {
     parent.appendChild(this.render());
-  }
-
-  unmount(parent) {
-    parent.removeChild(this.render());
   }
 }
 
