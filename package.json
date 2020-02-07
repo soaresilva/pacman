@@ -1,0 +1,26 @@
+{
+  "name": "day6-gulp-scss-practice",
+  "version": "0.0.1",
+  "description": "Practice of Gulp & SCSS",
+  "main": "index.js",
+  "scripts": {
+    "create": "gulp structure",
+    "build": "gulp build_dev",
+    "build:prod": "gulp build_prod",
+    "publish": "gulp publish",
+    "watch": "gulp watch"
+  },
+  "author": "The amazing me",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-cli": "^2.2.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
