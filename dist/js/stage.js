@@ -12,11 +12,9 @@ class Stage {
       if(this.entities[i].x === x && this.entities[i].y === y) {
         if(this.entities[i].type === 'wall') {
           this.type = 'wall';
-          console.log(this.type);
           return true;
         } else if(this.entities[i].type === 'apple') {
           this.type = 'apple';
-          console.log(this.type);
           this.removeEntity(this.entities[i]);
         }
       }

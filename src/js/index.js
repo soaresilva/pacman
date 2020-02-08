@@ -32,10 +32,11 @@ class Pacman {
         if(this.Stage.collisionDetection(this.xPos + 1, this.yPos) === true) {
           this.yPos = this.yPos;
         } else {
-          // console.log(this.Stage.type);
-          if(this.Stage.type = 'apple') {
+          //adding score when apple is eaten
+          if(this.Stage.type === 'apple'){
             this.addScore();
           }
+          this.Stage.type = '';
           this.xPos += 1;
         }
         this.update();
@@ -47,6 +48,11 @@ class Pacman {
         if(this.Stage.collisionDetection(this.xPos - 1, this.yPos) === true) {
           this.xPos = this.xPos;
         } else {
+          //adding score when apple is eaten
+          if(this.Stage.type === 'apple'){
+            this.addScore();
+          }
+          this.Stage.type = '';
           this.xPos -= 1;
         }
         this.update();
@@ -58,6 +64,11 @@ class Pacman {
         if(this.Stage.collisionDetection(this.xPos, this.yPos - 1) === true) {
           this.yPos = this.yPos;
         } else {
+          //adding score when apple is eaten
+          if(this.Stage.type === 'apple'){
+            this.addScore();
+          }
+          this.Stage.type = '';
           this.yPos -= 1;
         }
         this.update();
@@ -69,6 +80,11 @@ class Pacman {
         if(this.Stage.collisionDetection(this.xPos, this.yPos + 1) === true) {
           this.yPos = this.yPos;
         } else {
+          //adding score when apple is eaten
+          if(this.Stage.type === 'apple'){
+            this.addScore();
+          }
+          this.Stage.type = '';
           this.yPos += 1;
         }
         this.update();
