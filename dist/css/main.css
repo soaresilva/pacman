@@ -58,4 +58,7 @@ body {
 .pacgirl-active-dark {
   background-image: url("/img/pacgirl-active-dark.png"); }
 
+.pacName {
+  margin-top: -.1rem; }
+
 /*# sourceMappingURL=main.css.map */

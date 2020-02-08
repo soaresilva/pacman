@@ -1,18 +1,24 @@
 
 class Pacman {
-  constructor(Stage, xPos, yPos, mouth, pacDirection) {
+  constructor(Stage, xPos, yPos, mouth, pacDirection, score) {
     this.Stage = Stage;
     this.xPos = xPos;
     this.yPos = yPos;
     this.mouth = mouth;
+    this.score = score;
     this.pacDirection = pacDirection;
   }
 
   render() {
     this.element = document.createElement('div');
     this.element.className = 'entity entity--pac pacboy-active-light';
-    this.element.innerHTML = (``)
+    this.element.innerHTML = (`<h5 class="pacName">hey Score: <span class="pacScore">${this.score}</span></h5>`)
     return this.element;
+  }
+
+   addScore() {
+    const pacScore = this.element.querySelector('.pacScore');
+    pacScore.textContent = Number(pacScore.textContent) + 1;
   }
 
   move() {
@@ -26,11 +32,15 @@ class Pacman {
         if(this.Stage.collisionDetection(this.xPos + 1, this.yPos) === true) {
           this.yPos = this.yPos;
         } else {
+          // console.log(this.Stage.type);
+          if(this.Stage.type = 'apple') {
+            this.addScore();
+          }
           this.xPos += 1;
         }
         this.update();
-      } else if(e.keyCode === 37) {
 
+      } else if(e.keyCode === 37) {
         this.element.style.backgroundPositionY = '-85px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'left';
@@ -40,8 +50,8 @@ class Pacman {
           this.xPos -= 1;
         }
         this.update();
-      } else if(e.keyCode === 38) {
 
+      } else if(e.keyCode === 38) {
         this.element.style.backgroundPositionY = '-255px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'up';
@@ -51,8 +61,8 @@ class Pacman {
           this.yPos -= 1;
         }
         this.update();
-      } else if(e.keyCode === 40) {
 
+      } else if(e.keyCode === 40) {
         this.element.style.backgroundPositionY = '-170px';
         this.mouth = this.element.classList.toggle('entity--pac--mouthClosed')
         this.pacDirection = 'down';
@@ -102,12 +112,11 @@ class Pacman {
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
-  const stage = new Stage(12, 6);
+  const stage = new Stage( 12, 6);
   stage.mount(app);
   
 
   const stageOne = document.querySelector('.stage')
-
   //WALL ENTITTY
   const wall = new Entity(stage, 7, 5, 'wall');
   const wall1 = new Entity(stage, 3, 5, 'wall');
@@ -117,18 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const wall5 = new Entity(stage, 4, 4, 'wall');
   const wall6 = new Entity(stage, 2, 1, 'wall');
   const wallStreet = new Entity(stage, 3, 3, 'wall');
+  //Apple entities
   const apple = new Entity(stage, 5, 1, 'apple');
   const apple1 = new Entity(stage, 9, 2, 'apple');
-  const apple2= new Entity(stage, 7, 1, 'apple');
+  const apple2= new Entity(stage, 7, 4, 'apple');
   const apple3 = new Entity(stage, 7, 1, 'apple');
   const apple4 = new Entity(stage, 3, 4, 'apple');
 
   
   stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple, apple1, apple2, apple3, apple4);
-  // stage.collisionDetection(7, 5);
-  //APPLE ENTITY
   
-  const pacBoy = new Pacman(stage, 0, 0, 'mouth');
+  const pacBoy = new Pacman(stage, 0, 0, 'mouth', 0, 0);
+  pacBoy.mount(stageOne)
+  pacBoy.move();
+
   wall.mount(stageOne);
   wall1.mount(stageOne);
   wall2.mount(stageOne);
@@ -143,15 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
   apple2.mount(stageOne);
   apple3.mount(stageOne);
   apple4.mount(stageOne);
-  pacBoy.mount(stageOne)
-  
-  pacBoy.move();
-  
-  stage.removeEntity(apple);
 });
-
-
-
-// Create a class called Pacman which will hold the x position and mouth closed/opened state. For the closed/opened state use a variable called mouth.
-// Create a method moveRight() inside your class that will move the pacman to the right.
-// Create an update() function that will update the pacman's position on the screen.
