@@ -37,6 +37,25 @@ class Stage {
   
   mount(parent) {
     parent.appendChild(this.render());
+
+    fetch(`http://bootcamp.podlomar.org/api/pacman?width=${this.width}&height=${this.height}`)
+    .then(response => response.json())
+    .then((pacmanMap) => {
+      this.jsonToEntity(pacmanMap.walls, ENTITY_WALL);
+      this.jsonToEntity(pacmanMap.apples, ENTITY_APPLE);
+      this.jsonToEntity(pacmanMap.bombs, ENTITY_BOMB);
+    });
+  }
+
+  jsonToEntity(entitiesJson, type) {
+    for(let ent of entitiesJson) {
+      this.addEntity(new Entity(ent.x, ent.y, type))
+    }
+  }
+
+  addEntity(entity) {
+    entity.mount(this.element);
+    this.entities.push(entity);
   }
 
   removeEntity(ent) {

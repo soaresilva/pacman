@@ -1,9 +1,13 @@
+const ENTITY_WALL = 'wall';
+const ENTITY_APPLE = 'apple';
+const ENTITY_BOMB = 'bomb';
+
 class Entity {
-  constructor(stage, x, y, type) {
+  constructor( x, y, type) {
     this.x = x;
     this.y = y;
     this.type = type;
-    this.stage = stage;
+    // this.stage = stage;
   }
 
   render() {
