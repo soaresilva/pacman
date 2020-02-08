@@ -16,6 +16,9 @@ class Stage {
         } else if(this.entities[i].type === 'apple') {
           this.type = 'apple';
           this.removeEntity(this.entities[i]);
+        } else if(this.entities[i].type === 'bomb') {
+          this.type = 'bomb';
+          this.removeEntity(this.entities[i]);
         }
       }
     }

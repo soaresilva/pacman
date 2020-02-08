@@ -1,18 +1,20 @@
 
 class Pacman {
-  constructor(Stage, xPos, yPos, mouth, pacDirection, score) {
+  constructor(Stage, xPos, yPos, mouth, pacDirection, score, name) {
+    this.stopGame = false;
     this.Stage = Stage;
     this.xPos = xPos;
     this.yPos = yPos;
     this.mouth = mouth;
     this.score = score;
+    this.name = name;
     this.pacDirection = pacDirection;
   }
 
   render() {
     this.element = document.createElement('div');
     this.element.className = 'entity entity--pac pacboy-active-light';
-    this.element.innerHTML = (`<h5 class="pacName">hey Score: <span class="pacScore">${this.score}</span></h5>`)
+    this.element.innerHTML = (`<h5 class="pacName">${this.name} Score: <span class="pacScore">${this.score}</span></h5>`)
     return this.element;
   }
 
@@ -21,9 +23,18 @@ class Pacman {
     pacScore.textContent = Number(pacScore.textContent) + 1;
   }
 
+  pacmanDies() {
+    const randomNum = Math.round(Math.random() * 10)
+    if(randomNum < 5) {
+      this.element.className = 'entity entity--tomb';
+      this.stopGame = true;
+    }
+  }
+
   move() {
     // MOVING UP DOWN LEFT RIGHT
     document.addEventListener('keydown', (e) => {
+      if(!this.stopGame) {
 
       if (e.keyCode === 39) {
         this.element.style.backgroundPositionY = '0px';
@@ -35,6 +46,8 @@ class Pacman {
           //adding score when apple is eaten
           if(this.Stage.type === 'apple'){
             this.addScore();
+          } else if(this.Stage.type === 'bomb') {
+            this.pacmanDies();
           }
           this.Stage.type = '';
           this.xPos += 1;
@@ -51,6 +64,8 @@ class Pacman {
           //adding score when apple is eaten
           if(this.Stage.type === 'apple'){
             this.addScore();
+          } else if(this.Stage.type === 'bomb') {
+            this.pacmanDies();
           }
           this.Stage.type = '';
           this.xPos -= 1;
@@ -67,6 +82,8 @@ class Pacman {
           //adding score when apple is eaten
           if(this.Stage.type === 'apple'){
             this.addScore();
+          } else if(this.Stage.type === 'bomb') {
+            this.pacmanDies();
           }
           this.Stage.type = '';
           this.yPos -= 1;
@@ -83,12 +100,15 @@ class Pacman {
           //adding score when apple is eaten
           if(this.Stage.type === 'apple'){
             this.addScore();
+          } else if(this.Stage.type === 'bomb') {
+            this.pacmanDies();
           }
           this.Stage.type = '';
           this.yPos += 1;
         }
         this.update();
       }
+     }
     })
   };
 
@@ -148,11 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const apple2= new Entity(stage, 7, 4, 'apple');
   const apple3 = new Entity(stage, 7, 1, 'apple');
   const apple4 = new Entity(stage, 3, 4, 'apple');
+  //bomb entities
+  const bomb = new Entity(stage, 5, 5, 'bomb');
+  const bomb1 = new Entity(stage, 2, 4, 'bomb');
+  const bomb2 = new Entity(stage, 0, 5, 'bomb');
 
   
-  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple, apple1, apple2, apple3, apple4);
+  stage.entities.push(wall, wall1, wall2, wall3, wall4, wall5, wall6, wallStreet, apple, apple1, apple2, apple3, apple4, bomb, bomb1, bomb2);
   
-  const pacBoy = new Pacman(stage, 0, 0, 'mouth', 0, 0);
+  const pacBoy = new Pacman(stage, 0, 0, 'mouth', 0, 0, 'Halil');
   pacBoy.mount(stageOne)
   pacBoy.move();
 
@@ -170,4 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
   apple2.mount(stageOne);
   apple3.mount(stageOne);
   apple4.mount(stageOne);
+
+  bomb.mount(stageOne);
+  bomb1.mount(stageOne);
+  bomb2.mount(stageOne);
 });
