@@ -9,7 +9,7 @@ desktop.ini
 ._*
  
 # VS Code Settings
-.vscode/*
+# .vscode/*
  
 # Node.js modules
 node_modules/
