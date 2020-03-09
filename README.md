@@ -17,3 +17,5 @@ A little Pacman-like web application built with vanilla JS during a six-hours lo
 ø Instructions:
 
 — Please run <i>npm/yarn run watch</i> to properly view the application.
+
+— Use the directional keys to move 1Pac across the maze, eating all the apples to get some points and avoiding bombs along the way —  you only have a 50% chance of survival if you eat one of those. Refresh the page to generate a completely new maze.
