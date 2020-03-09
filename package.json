@@ -9,7 +9,7 @@
     "build:prod": "gulp build_prod",
     "publish": "gulp publish",
     "watch": "gulp watch",
-    "start": "node index.js"
+    "start": "node dist/server.js"
   },
   "author": "The amazing me",
   "license": "ISC",
