@@ -12,7 +12,7 @@ desktop.ini
 # .vscode/*
  
 # Node.js modules
-node_modules/
+# node_modules/
 
 # Project build
 # dist

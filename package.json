@@ -8,8 +8,7 @@
     "build": "gulp build_dev",
     "build:prod": "gulp build_prod",
     "publish": "gulp publish",
-    "watch": "gulp watch",
-    "start": "node index.js"
+    "watch": "gulp watch"
   },
   "author": "The amazing me",
   "license": "ISC",
