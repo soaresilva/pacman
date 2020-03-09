@@ -148,7 +148,7 @@ class Pacman {
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = document.getElementById('app');
-  const stage = new Stage( 15, 8);
+  const stage = new Stage(15, 12);
   stage.mount(app);
   
 

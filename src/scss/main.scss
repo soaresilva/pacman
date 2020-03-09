@@ -7,6 +7,15 @@ html {
   font-size: 15px;
 }
 
+#header {
+  margin: 0 10rem;
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: red;
+  }
+}
+
 body {
   margin: 0;
 }
@@ -16,13 +25,13 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 }
 
 .stage {
   // width: 1020px;
   // height: 510px;
-  background-image: url('/img/tile.png');
+  background-image: url("/img/tile.png");
   position: relative;
 }
 
@@ -37,58 +46,57 @@ body {
     text-align: center;
     padding-top: 65px;
     user-select: none;
-    
+
     &--mouthClosed {
       background-position-x: right;
     }
   }
-  
- 
+
   &--wall {
-    background-image: url('/img/wall.png');
+    background-image: url("/img/wall.png");
   }
 
   &--apple {
-    background-image: url('/img/apple.png');
+    background-image: url("/img/apple.png");
   }
 
   &--bomb {
-    background-image: url('/img/bomb.png');
+    background-image: url("/img/bomb.png");
   }
 
   &--tomb {
-    background-image: url('/img/tomb.png');
+    background-image: url("/img/tomb.png");
   }
 }
 
 .pacboy {
   &-active-light {
-    background-image: url('/img/pacboy-active-light.png');
+    background-image: url("/img/pacboy-active-light.png");
   }
 
   &-active-medium {
-    background-image: url('/img/pacboy-active-medium.png');
+    background-image: url("/img/pacboy-active-medium.png");
   }
 
   &-active-dark {
-    background-image: url('/img/pacboy-active-dark.png');
+    background-image: url("/img/pacboy-active-dark.png");
   }
 }
 
 .pacgirl {
   &-active-light {
-    background-image: url('/img/pacgirl-active-light.png');
+    background-image: url("/img/pacgirl-active-light.png");
   }
 
   &-active-medium {
-    background-image: url('/img/pacgirl-active-medium.png');
+    background-image: url("/img/pacgirl-active-medium.png");
   }
 
   &-active-dark {
-    background-image: url('/img/pacgirl-active-dark.png');
+    background-image: url("/img/pacgirl-active-dark.png");
   }
 }
 
 .pacName {
-  margin-top: -.1rem;
+  margin-top: -0.1rem;
 }
