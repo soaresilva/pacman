@@ -1,16 +1,18 @@
 {
-  "name": "day6-gulp-scss-practice",
+  "name": "pacman",
   "version": "0.0.1",
-  "description": "Practice of Gulp & SCSS",
+  "description": "pacman-hackathon",
   "main": "index.js",
   "scripts": {
+    "start": "node app",
+    "postinstall": "gulp default",
     "create": "gulp structure",
     "build": "gulp build_dev",
     "build:prod": "gulp build_prod",
     "publish": "gulp publish",
     "watch": "gulp watch"
   },
-  "author": "The amazing me",
+  "author": "Diogo Silva and Lyuben Tenekedzhiev",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
