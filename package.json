@@ -4,10 +4,9 @@
   "description": "pacman-hackathon",
   "main": "index.js",
   "scripts": {
-    "start": "node app",
-    "postinstall": "gulp default",
-    "create": "gulp structure",
     "build": "gulp build_dev",
+    "start": "node app.js",
+    "create": "gulp structure",
     "build:prod": "gulp build_prod",
     "publish": "gulp publish",
     "watch": "gulp watch"
